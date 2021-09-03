@@ -1,3 +1,3 @@
 #!/bin/sh -l
 
-python sonarcloud-api --org $(org) --project-key $(project-key)
+python sonarcloud-api --org $1 --project-key $2
