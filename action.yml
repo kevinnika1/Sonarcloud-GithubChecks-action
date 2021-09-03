@@ -14,6 +14,7 @@ inputs:
 runs:
   using: "composite"
   steps:
+    - uses: actions/checkout@v2
     # first run the python script that will output the sonarresults
     - run: ${{ github.action_path }}/entrypoint.sh ${{ inputs.org }} ${{ inputs.project-key }}
       shell: bash
