@@ -8,6 +8,9 @@ inputs:
   project-key: 
     description: 'project key that can be found in sonarcloud under the project you are scanning'
     required: true
+  repo_token:
+    description: 'Github repo token'
+    required: true
 runs:
   using: "composite"
   steps:
@@ -18,7 +21,7 @@ runs:
     - name: upload sonar results to annotaions
       uses: yuzutech/annotations-action@v0.3.0
       with:
-          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          repo-token: "${{ inputs.repo_token }}"
           title: 'Sonar Issues'
           input: './sonarresults.json'
     
