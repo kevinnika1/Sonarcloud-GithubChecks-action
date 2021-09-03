@@ -15,15 +15,9 @@ runs:
   using: "composite"
   steps:
     - uses: actions/checkout@v2
-    - run: |
-      ls
-      cd ..
-      ls
-      cd ..
-      ls
     # first run the python script that will output the sonarresults
-    - run: ${{ github.action_path }}/entrypoint.sh ${{ inputs.org }} ${{ inputs.project-key }}
-      shell: bash
+    - run: ${{ github.action_path }}/sonarcloud-api ${{ inputs.org }} ${{ inputs.project-key }}
+      shell: python
     # next run the annotaion action that will output the results into github checks/annotations
     - name: upload sonar results to annotaions
       uses: yuzutech/annotations-action@v0.3.0
