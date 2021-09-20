@@ -5,7 +5,7 @@ import json
 def getArgs():
     parser = argparse.ArgumentParser(description='Add sonarcloud detials', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument( "--org", type=str, help="organisation name in sonarcloud" )
-    parser.add_argument( "--projectkey", type=str, help="project key in sonarcloud" )
+    parser.add_argument( "--project-key", type=str, help="project key in sonarcloud" )
     return parser, parser.parse_args()
 
 
@@ -37,4 +37,4 @@ def run(org,project):
 
 if __name__ == '__main__':
     myParser, myargs = getArgs()
-    sys.exit(run(myargs.org,myargs.projectkey))
+    sys.exit(run(myargs.org,myargs.project-key))
