@@ -21,7 +21,8 @@ runs:
     - name: entry 
       uses: actions/checkout@v2
       with:
-       repository: kevinnika1/Sonarcloud-GithubChecks-action
+       name: kevinnika1/Sonarcloud-GithubChecks-action <-- clone https://github.com/kevinnika1/Sonarcloud-GithubChecks-action
+       ref: refs/heads/release
     - run: ${{ github.action_path }}/entrypoint.sh '${{ inputs.org }}' '${{ inputs.project-key }}'
       shell: bash
      # shell: bash
