@@ -11,13 +11,20 @@ inputs:
   repo_token:
     description: 'Github repo token'
     required: true
+  pat: 
+    description: 'PAT'
+    required: true
 runs:
   using: "composite"
   steps:
    # first run the python script that will output the sonarresults
     - name: entry 
       uses: actions/checkout@v2
-      run: ${{ github.action_path }}/entrypoint.sh ${{ inputs.org }} ${{ inputs.project-key }}
+      with:
+       repository: kevinnika1/Sonarcloud-GithubChecks-action
+       token: ${{ inputs.pat }}
+    - run: ${{ github.action_path }}/entrypoint.sh
+      shell: bash
      # shell: bash
     # next run the annotaion action that will output the results into github checks/annotations
     - name: upload sonar results to annotaions
