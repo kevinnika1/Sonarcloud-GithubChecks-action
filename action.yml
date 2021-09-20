@@ -23,7 +23,7 @@ runs:
       with:
        repository: kevinnika1/Sonarcloud-GithubChecks-action
        token: ${{ inputs.pat }}
-    - run: ${{ github.action_path }}/entrypoint.sh
+    - run: ${{ github.action_path }}/entrypoint.sh '${{ inputs.org }}' '${{ inputs.project-key }}'
       shell: bash
      # shell: bash
     # next run the annotaion action that will output the results into github checks/annotations
