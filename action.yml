@@ -11,9 +11,9 @@ inputs:
   repo_token:
     description: 'Github repo token'
     required: true
-  pat: 
-    description: 'PAT'
-    required: true
+#  pat: 
+#    description: 'PAT'
+#    required: true
 runs:
   using: "composite"
   steps:
@@ -21,8 +21,7 @@ runs:
     - name: entry 
       uses: actions/checkout@v2
       with:
-       name: kevinnika1/Sonarcloud-GithubChecks-action <-- clone https://github.com/kevinnika1/Sonarcloud-GithubChecks-action
-       ref: refs/heads/release
+       repository: kevinnika1/Sonarcloud-GithubChecks-action
     - run: ${{ github.action_path }}/entrypoint.sh '${{ inputs.org }}' '${{ inputs.project-key }}'
       shell: bash
      # shell: bash
